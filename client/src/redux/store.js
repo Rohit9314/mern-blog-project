@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import userReducer from './user/userSlice'
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage';
+import logger from 'redux-logger';
+import userReducer from './user/userSlice';
+import themeReducer from './theme/themeSlice';
 
 const rootReducer = combineReducers({
   user: userReducer,
-  // theme: themeReducer,
+  theme: themeReducer,
 });
 
 const persistConfig = {
@@ -20,7 +22,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(
     { serializableCheck: false }
-  )
+  ).concat(logger)
 })
 
 export const persistor = persistStore(store)
