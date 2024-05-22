@@ -144,7 +144,7 @@ export default function DashboardComp() {
                         className='w-10 h-10 rounded-full bg-gray-500'
                       />
                     </Table.Cell>
-                    <Table.Cell>{user.userName}</Table.Cell>
+                    <Table.Cell>{user.username}</Table.Cell>
                   </Table.Row>
                 </Table.Body>
               ))}
@@ -167,7 +167,7 @@ export default function DashboardComp() {
                 <Table.Body key={comment._id} className='divide-y'>
                   <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                     <Table.Cell className='w-96'>
-                      <p className='line-clamp-2'>{comment.content}</p>
+                        <p className='line-clamp-2'>{comment.content}</p>
                     </Table.Cell>
                     <Table.Cell>{comment.numberOfLikes}</Table.Cell>
                   </Table.Row>
